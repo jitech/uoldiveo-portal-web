@@ -1,34 +1,36 @@
 package br.com.uoldiveo.portal.controller;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
-import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+
+import br.com.uoldiveo.portal.domain.User;
+import br.com.uoldiveo.portal.service.LoginService;
 
 @Controller
 public class IndexController {
 
+	@Autowired
+    private LoginService loginService;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView index(Model model) {
+    public User index(Model model) {
 		
 		try {
-				model.addAttribute("json", call_me());
-				return new ModelAndView("index");			
+				return loginService.login();
+				//model.addAttribute("json", loginService.login());
+				//return new ModelAndView("index");			
 				
 		}catch(Exception ex) {
 			ex.printStackTrace();
-			return new ModelAndView("index");
+			//return new ModelAndView("index");
+			return null;
 		}
 	}
 	
-	public String call_me() throws Exception {
+	/*public String call_me() throws Exception {
 		String url = "http://uoldiveo-portal-gateway-poc-painel-ud.z1.orbx.uoldiveo.com/login";
 	        URL obj = new URL(url);
 	        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -52,5 +54,5 @@ public class IndexController {
 	        JSONObject myResponse = new JSONObject(response.toString());       
 	        return myResponse.toString();
 	         
-	}
+	}*/
 }
