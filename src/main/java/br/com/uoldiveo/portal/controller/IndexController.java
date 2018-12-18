@@ -1,4 +1,4 @@
-package br.com.uoldiveo.portal.uoldiveoportalweb;
+package br.com.uoldiveo.portal.controller;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

@@ -1,4 +1,4 @@
-package br.com.uoldiveo.portal.uoldiveoportalweb;
+package br.com.uoldiveo.portal.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
