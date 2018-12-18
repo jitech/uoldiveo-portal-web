@@ -29,7 +29,7 @@ public class IndexController {
 	}
 	
 	public String call_me() throws Exception {
-		String url = "http://uoldiveo-portal-login-poc-painel-ud.z1.orbx.uoldiveo.com/login";
+		String url = "http://uoldiveo-portal-gateway-poc-painel-ud.z1.orbx.uoldiveo.com/login";
 	        URL obj = new URL(url);
 	        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 	        // optional default is GET
